@@ -1,0 +1,20 @@
+{
+    "name": "rodineiteixeira/teaching-mvc",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rodineiteixeira\\Mvc\\": "src/"
+        },
+        "files": ["helpers.php", "config.php"]
+    },
+    "authors": [
+        {
+            "name": "Rodinei Teixeira",
+            "email": "rodineiguitar@gmail.com"
+        }
+    ],
+    "require": {
+        "pecee/simple-router": "5.3.0.5",
+        "league/plates": "v4.0.0-alpha"
+    }
+}
