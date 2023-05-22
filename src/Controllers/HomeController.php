@@ -11,11 +11,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        echo $this->view->render("home");
+        echo $this->view->render("home", [
+            "title" => "PHP MVC Home"
+        ]);
     }
 
     public function login()
     {
-        echo $this->view->render("login");
+        echo $this->view->render("login", [
+            "title" => "PHP MVC Login"
+        ]);
     }
 }

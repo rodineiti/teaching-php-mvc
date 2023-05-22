@@ -17,7 +17,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        echo $this->view->render("users/index");
+        echo $this->view->render("users/index", [
+            "title" => "PHP MVC List Users"
+        ]);
     }
 
     /**
@@ -25,7 +27,9 @@ class UsersController extends Controller
      */
     public function create()
     {
-        echo $this->view->render("users/create");
+        echo $this->view->render("users/create", [
+            "title" => "PHP MVC Create User"
+        ]);
     }
 
     /**
@@ -35,7 +39,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         echo $this->view->render("users/edit", [
-            'id' => $id
+            'id' => $id,
+            'title' => 'PHP MVC Edit User'
         ]);
     }
 
