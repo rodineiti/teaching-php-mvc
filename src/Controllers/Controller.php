@@ -2,14 +2,20 @@
 
 namespace Rodineiteixeira\Mvc\Controllers;
 
-use League\Plates\Engine;
+use Rodineiteixeira\Mvc\Core\View\View;
 
 class Controller
 {
+    /**
+     * @var View
+     */
     protected $view;
 
-    public function __construct()
+    /**
+     * @param string|null $path
+     */
+    public function __construct(string $path = null)
     {
-        $this->view = Engine::create(dirname(__DIR__, 2) . "/views", "php");
+        $this->view = new View($path);
     }
 }
