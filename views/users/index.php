@@ -9,35 +9,25 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                        <a class="btn btn-primary" href="<?= url('users.edit', ['id' => 1]) ?>" role="button">Editar</a>
-                        <a onclick="return confirm('Confirm delete user?');"
-                           href="<?= url('users.destroy', ['id' => 2]) ?>"
-                           class="btn btn-danger">Del</a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                        <a class="btn btn-primary" href="<?= url('users.edit', ['id' => 2]) ?>" role="button">Editar</a>
-                        <a onclick="return confirm('Confirm delete user?');"
-                           href="<?= url('users.destroy', ['id' => 2]) ?>"
-                           class="btn btn-danger">Del</a>
-
-                    </td>
-                </tr>
+                <?php foreach ($users as $item): ?>
+                    <tr>
+                        <th scope="row"><?=$item->id?></th>
+                        <td><?=$item->name?></td>
+                        <td><?=$item->email?></td>
+                        <td>
+                            <a class="btn btn-primary" href="<?= url('users.edit', ['id' => $item->id]) ?>" role="button">Editar</a>
+                            <a onclick="return confirm('Confirm delete user?');"
+                               href="<?= url('users.destroy', ['id' => $item->id]) ?>"
+                               class="btn btn-danger">Del</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
