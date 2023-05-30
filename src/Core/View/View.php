@@ -2,31 +2,17 @@
 
 namespace Rodineiteixeira\Mvc\Core\View;
 
-use League\Plates\Engine;
+# use Rodineiteixeira\Mvc\Core\View\Providers\PlatesProvider as ViewProvider;
+use Rodineiteixeira\Mvc\Core\View\Providers\TwigProvider as ViewProvider;
 
-class View
+class View extends ViewProvider
 {
-    /**
-     * @var Engine
-     */
-    private $engine;
-
     /**
      * @param string $path
      * @param string $extension
      */
-    public function __construct(string $path, string $extension = 'php')
+    public function __construct(string $path, string $extension = 'twig.php')
     {
-        $this->engine = Engine::create($path, $extension);
-    }
-
-    /**
-     * @param string $template
-     * @param array $data
-     * @return string
-     */
-    public function render(string $template, array $data = []): string
-    {
-        return $this->engine->render($template, $data);
+        parent::__construct($path, $extension);
     }
 }

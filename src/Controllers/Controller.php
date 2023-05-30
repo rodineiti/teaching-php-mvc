@@ -9,7 +9,7 @@ class Controller
     /**
      * @var View
      */
-    protected $view;
+    protected View $view;
 
     /**
      * @param string|null $path
