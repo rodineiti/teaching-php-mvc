@@ -2,6 +2,8 @@
 
 namespace Rodineiteixeira\Mvc\Controllers;
 
+use Rodineiteixeira\Mvc\Models\User;
+
 class HomeController extends Controller
 {
     public function __construct()
@@ -16,10 +18,33 @@ class HomeController extends Controller
         ]);
     }
 
-    public function login()
+    public function loginView()
     {
         echo $this->view->render("login", [
             "title" => "PHP MVC Login"
         ]);
+    }
+
+    public function login()
+    {
+        $data = input()->all();
+
+        $user = User::where('email', $data['email'])
+            ->where('password', $data['password'])->first();
+
+        if (!$user) {
+            redirect(url('loginView'));
+        }
+
+        $_SESSION['user_id'] = $user->id;
+
+        redirect(url('home'));
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['user_id']);
+
+        redirect(url('loginView'));
     }
 }

@@ -6,11 +6,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <?php if (check() && user()->is_admin == '1'): ?>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?=url('users.index')?>">Users</a>
                 </li>
+                <?php endif; ?>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?=url('login')?>">Logout</a>
+                    <a class="nav-link active" aria-current="page" href="<?=url('logout')?>">Logout</a>
                 </li>
             </ul>
             <form class="d-flex">

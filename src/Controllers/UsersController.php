@@ -39,7 +39,8 @@ class UsersController extends Controller
         $this->user->create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password']
+            'password' => $data['password'],
+            'is_admin' => $data['is_admin'],
         ]);
 
         redirect(url('users.index'));
@@ -64,7 +65,8 @@ class UsersController extends Controller
         $user->update([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password']
+            'password' => $data['password'],
+            'is_admin' => $data['is_admin'],
         ]);
 
         redirect(url('users.index'));

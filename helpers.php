@@ -5,6 +5,7 @@ use Pecee\SimpleRouter\SimpleRouter as Router;
 use Pecee\Http\Url;
 use Pecee\Http\Response;
 use Pecee\Http\Request;
+use Rodineiteixeira\Mvc\Models\User;
 
 /**
  * Get url for a route by using either name/alias, class or method name.
@@ -96,4 +97,24 @@ function dd(...$args)
 {
     print ("<pre>" . print_r($args, true) . "</pre>");
     die;
+}
+
+/**
+ * @return null
+ */
+function user()
+{
+    if (isset($_SESSION['user_id'])) {
+        return User::find($_SESSION['user_id']);
+    }
+
+    return null;
+}
+
+/**
+ * @return bool
+ */
+function check()
+{
+    return isset($_SESSION['user_id']);
 }
