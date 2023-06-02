@@ -6,8 +6,14 @@ use Rodineiteixeira\Mvc\Models\User;
 
 class UsersController extends Controller
 {
+    /**
+     * @var User
+     */
     protected $user;
 
+    /**
+     * Construct
+     */
     public function __construct()
     {
         parent::__construct(dirname(__DIR__, 2) . "/views");
@@ -15,6 +21,9 @@ class UsersController extends Controller
         $this->user = new User();
     }
 
+    /**
+     * @return void
+     */
     public function index()
     {
         $users = $this->user->all();
@@ -25,6 +34,9 @@ class UsersController extends Controller
         ]);
     }
 
+    /**
+     * @return void
+     */
     public function create()
     {
         echo $this->view->render("users/create", [
@@ -32,6 +44,9 @@ class UsersController extends Controller
         ]);
     }
 
+    /**
+     * @return void
+     */
     public function store()
     {
         $data = input()->all();
@@ -46,6 +61,10 @@ class UsersController extends Controller
         redirect(url('users.index'));
     }
 
+    /**
+     * @param $id
+     * @return void
+     */
     public function edit($id)
     {
         $user = $this->getUser($id);
@@ -56,6 +75,10 @@ class UsersController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return void
+     */
     public function update($id)
     {
         $data = input()->all();
@@ -72,6 +95,10 @@ class UsersController extends Controller
         redirect(url('users.index'));
     }
 
+    /**
+     * @param $id
+     * @return void
+     */
     public function destroy($id)
     {
         $user = $this->getUser($id);
@@ -81,6 +108,10 @@ class UsersController extends Controller
         redirect(url('users.index'));
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getUser($id)
     {
         $user = $this->user->find($id);
@@ -92,6 +123,9 @@ class UsersController extends Controller
         return $user;
     }
 
+    /**
+     * @return void
+     */
     public function notFound()
     {
         echo $this->view->render("404", [

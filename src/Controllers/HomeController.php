@@ -6,11 +6,17 @@ use Rodineiteixeira\Mvc\Models\User;
 
 class HomeController extends Controller
 {
+    /**
+     * Construct
+     */
     public function __construct()
     {
         parent::__construct(dirname(__DIR__, 2) . "/views");
     }
 
+    /**
+     * @return void
+     */
     public function index()
     {
         echo $this->view->render("home", [
@@ -18,6 +24,9 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * @return void
+     */
     public function loginView()
     {
         echo $this->view->render("login", [
@@ -25,6 +34,9 @@ class HomeController extends Controller
         ]);
     }
 
+    /**
+     * @return void
+     */
     public function login()
     {
         $data = input()->all();
@@ -41,6 +53,9 @@ class HomeController extends Controller
         redirect(url('home'));
     }
 
+    /**
+     * @return void
+     */
     public function logout()
     {
         unset($_SESSION['user_id']);

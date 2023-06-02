@@ -6,6 +6,9 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 class Database
 {
+    /**
+     * @return void
+     */
     public static function start(): void
     {
         try {
