@@ -1,12 +1,13 @@
 <?php
 
 use Pecee\SimpleRouter\SimpleRouter;
+use Rodineiteixeira\Mvc\Controllers\HomeController;
 use Rodineiteixeira\Mvc\Controllers\Middlewares\IsAdmin;
 use Rodineiteixeira\Mvc\Controllers\Middlewares\Authenticate;
 use Rodineiteixeira\Mvc\Controllers\Middlewares\OnlyAuthenticate;
 
-SimpleRouter::get('/login', 'HomeController@loginView')->name('loginView')->addMiddleware(Authenticate::class);
-SimpleRouter::post('/login', 'HomeController@login')->name('login');
+SimpleRouter::get('/login', [HomeController::class, 'loginView'])->name('loginView')->addMiddleware(Authenticate::class);
+SimpleRouter::post('/login', [HomeController::class, 'login'])->name('login');
 
 SimpleRouter::get('/not-found', 'NotFoundController@index')->name('notFound');
 
